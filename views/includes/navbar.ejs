@@ -1,0 +1,98 @@
+<style>
+  
+  .search-btn{
+    background-color:#fe424d;
+    color:#fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .search-btn:hover{
+    background-color:#fe424d;
+    color:#fff;
+  }
+  .search-btn i{
+    display: inline;
+    margin-right: 0.5rem;
+
+
+  }
+  .search-input{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+  }
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+  @media (max-width: 767px) {
+  /* Optional: smaller width for mobile search bar */
+  form.d-md-none {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .search-input {
+    padding: 0.5rem 1rem; /* reduce horizontal padding */
+    font-size: 0.9rem;    /* slightly smaller text */
+  }
+  #navbarNavAltMarkup{
+    background-color: white;
+  }
+  
+  
+}
+
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+    <div class="navbar-nav ms-auto">
+     <form  action="/listings/search" method="GET" id="searchForm" class="d-flex d-md-none me-2"  role="search" type="search" >
+     <input name="query" id="searchInput" class="form-control form-control me-2 search-input" type="search" placeholder="Search destinations" aria-label="Search">
+     <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+    </div> 
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+
+      <form class="d-none d-md-flex mx-auto" action="/listings/search" method="GET" role="search">
+        <input name="query" class="form-control me-2 search-input" type="search" placeholder="Search destinations">
+        <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+     
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if(!currUser){%>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% }%> <% if(currUser){%>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% }%>
+      </div>
+    </div>
+  </div>
+</nav>
